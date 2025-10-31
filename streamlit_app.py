@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 client = OpenAI(
-    api_key = "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"
+    api_key = "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"
 )
 subject = st.text_input("What subject would you like to study?")
 style = st.selectbox(
