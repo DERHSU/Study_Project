@@ -19,7 +19,7 @@ level = st.selectbox(
         "Elementary level",
         "Middle school level",
         "High School level",
-        "Colledge or beyond",
+        "College or beyond",
     ]
 )
 if style == "Summarize a topic":
@@ -28,11 +28,16 @@ if style == "Summarize a topic":
         [
            "short summary",
             "detailed summary",
-            "bullet-point format",
-            "formal",
-            "casual"
+            "bullet-point summary",
         ]
     )
+
+    # Prompts for summary
+    system_prompt = f"You are to produce a {method}. "
+    assistant_prompt = f"Explain this to a student at {level}"
+    user_prompt = subject
+
+
 if style == "Quiz you":
     method = st.selectbox(
         "How would you like your quiz?",
@@ -55,15 +60,20 @@ if style == "Explain a concept":
         ]
     )
 run = st.button("Submit your request")
+
+
+
+
+
 assistant_message = "You're supposed to be the best study tool for students"
 if run:
-    user_prompt = f""
+    
     # 4
     response = client.chat.completions.create(
         model="gpt-3.5-turbo-0125",
         messages=[
-            {"role": "system", "content": content_message},
-            {"role": "assistant", "content": assistant_message},
+            {"role": "system", "content": system_prompt},
+            {"role": "assistant", "content": assistant_prompt},
             {"role": "user", "content": user_prompt}
         ]
     )
