@@ -1,6 +1,6 @@
 import streamlit as st
 from openai import OpenAI
-
+import json
 client = OpenAI(
     api_key = st.secrets["api_key"]
 )
@@ -48,9 +48,21 @@ if style == "Quiz you":
         ]
     )
 
-    system_prompt = f""
-    assistant_prompt = ""
-    user_prompt = ""
+    if method == "multiple choice":
+        system_prompt = f""" Make this response in json with {question_quantity} questions
+        [
+            { "Question" : [ "choice", "choice", "choice", "choice"]},
+            { "Question" : [ "choice", "choice", "choice", "choice"]}
+        ]
+        """
+        assistant_prompt = f"Imagine you are teaching at {level}"
+        user_prompt = subject
+    # system_prompt = f'''
+    # Give me a response in json:
+    # {}
+    # '''
+    # assistant_prompt = ""
+    # user_prompt = ""
     
 if style == "Explain a concept":
     method = st.selectbox(
