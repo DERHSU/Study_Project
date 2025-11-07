@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 client = OpenAI(
-    api_key = st.secrets["aki_key"]
+    api_key = st.secrets["api_key"]
 )
 subject = st.text_input("What subject would you like to study?")
 style = st.selectbox(
@@ -50,6 +50,7 @@ if style == "Quiz you":
             "hard"
         ]
     )
+    
 if style == "Explain a concept":
     method = st.selectbox(
         "How would you like me to explain your concept",
