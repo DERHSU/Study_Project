@@ -39,17 +39,18 @@ if style == "Summarize a topic":
 
 
 if style == "Quiz you":
+    question_quantity = st.number_input("How many questions would you like in your quiz?", min_value = 3, max_value = 30, value = 10)
     method = st.selectbox(
         "How would you like your quiz?",
         [
-           "10 questions",
-            "20 questions",
             "multiple choice",
             "short answer",
-            "easy",
-            "hard"
         ]
     )
+
+    system_prompt = f""
+    assistant_prompt = ""
+    user_prompt = ""
     
 if style == "Explain a concept":
     method = st.selectbox(
@@ -60,6 +61,10 @@ if style == "Explain a concept":
             "step-by-step explanation"
         ]
     )
+    system_prompt = f"You are to make a {method}."
+    assistant_prompt = f"Explain this topic at {level}."
+    user_prompt = subject
+
 run = st.button("Submit your request")
 
 
