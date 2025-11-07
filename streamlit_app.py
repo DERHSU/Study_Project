@@ -49,7 +49,7 @@ if style == "Quiz you":
     )
 
     if method == "multiple choice":
-        system_prompt = f""" Make this response in json with {question_quantity} questions
+        system_prompt = f""" Make this response in json with {question_quantity} questions""" + """
         [
             { "Question" : [ "choice", "choice", "choice", "choice"]},
             { "Question" : [ "choice", "choice", "choice", "choice"]}
