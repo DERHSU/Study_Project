@@ -63,7 +63,9 @@ if style == "Quiz you":
         [
             { "Question" : "Explain"},
             { "Question" : "Explain"}
-        ]"""
+        ]
+        
+        Make sure that if the topic is a Math subject, give math problems."""
         assistant_prompt = f"Teach this topic to a {level} student."
         user_prompt = subject
     # system_prompt = f'''
