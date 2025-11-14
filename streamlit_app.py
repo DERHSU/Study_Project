@@ -51,8 +51,8 @@ if style == "Quiz you":
     if method == "multiple choice":
         system_prompt = f""" Make this response in json with {question_quantity} questions""" + """
         [
-            { "Question" : [ "choice", "choice", "choice", "choice"]},
-            { "Question" : [ "choice", "choice", "choice", "choice"]}
+            { "text of first question" : [ "choice", "choice", "choice", "choice"]},
+            { "text of second question" : [ "choice", "choice", "choice", "choice"]}
         ]
         """
         assistant_prompt = f"Imagine you are teaching at {level}. Make sure that one of the choices provided is the correct answer."
