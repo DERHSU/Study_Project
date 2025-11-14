@@ -88,15 +88,16 @@ if style == "Explain a concept":
     assistant_prompt = f"Explain this topic at {level}."
     user_prompt = subject
 
-run = st.button("Submit your request")
+run = st.button("Submit your request", onclick=respond)
 
 
 
 
 
 assistant_message = "You're supposed to be the best study tool for students"
-if run:
-    
+#if run:
+
+def respond():    
     # 4
     response = client.chat.completions.create(
         model="gpt-3.5-turbo-0125",
