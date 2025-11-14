@@ -119,5 +119,5 @@ if run:
                 answer = qa_set[question] 
                 formatted_quiz += "**" + question + "**\n"
                 for a in answer:
-                    formatted_quiz += f"- {answer}\n"
+                    formatted_quiz += f"- {a}\n"
             st.write(formatted_quiz) 
