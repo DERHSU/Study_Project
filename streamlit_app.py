@@ -112,3 +112,8 @@ if run:
     else:
         quiz = json.loads(ai_response)
         st.write(quiz)
+        if method == "multiple choice":
+            for qa_set in quiz:
+                question = list(qa_set)[0]
+                answer = qa_set[question] 
+                st.radio(question, answer)
