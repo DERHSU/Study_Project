@@ -116,4 +116,4 @@ if run:
             for qa_set in quiz:
                 question = list(qa_set)[0]
                 answer = qa_set[question] 
-                st.radio(question, answer)
+                st.radio(question, answer, None)
