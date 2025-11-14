@@ -88,15 +88,6 @@ if style == "Explain a concept":
     assistant_prompt = f"Explain this topic at {level}."
     user_prompt = subject
 
-run = st.button("Submit your request", onclick=respond)
-
-
-
-
-
-assistant_message = "You're supposed to be the best study tool for students"
-#if run:
-
 def respond():    
     # 4
     response = client.chat.completions.create(
@@ -118,3 +109,13 @@ def respond():
                 question = list(qa_set)[0]
                 answer = qa_set[question] 
                 st.radio(question, answer, None)
+                
+run = st.button("Submit your request", onclick=respond)
+
+
+
+
+
+assistant_message = "You're supposed to be the best study tool for students"
+#if run:
+
