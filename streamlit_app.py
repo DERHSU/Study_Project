@@ -113,7 +113,11 @@ if run:
         quiz = json.loads(ai_response)
         st.write(quiz)
         if method == "multiple choice":
+            formatted_quiz = ""
             for qa_set in quiz:
                 question = list(qa_set)[0]
                 answer = qa_set[question] 
-                st.radio(question, answer, None)
+                formatted_quiz += "**" + question + "**\n"
+                for a in answer:
+                    formatted_quiz += f"- {answer}\n"
+            st.write(formatted_quiz) 
