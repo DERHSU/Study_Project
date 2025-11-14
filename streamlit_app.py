@@ -55,7 +55,16 @@ if style == "Quiz you":
             { "Question" : [ "choice", "choice", "choice", "choice"]}
         ]
         """
-        assistant_prompt = f"Imagine you are teaching at {level}"
+        assistant_prompt = f"Imagine you are teaching at {level}. Make sure that one of the choices provided is the correct answer."
+        user_prompt = subject
+    if method == "short answer":
+        system_prompt = f"""Create a short answer quiz in json with {question_quantity} questions.""" + """
+        Format the JSON like this:
+        [
+            { "Question" : "Explain"},
+            { "Question" : "Explain"}
+        ]"""
+        assistant_prompt = f"Teach this topic to a {level} student."
         user_prompt = subject
     # system_prompt = f'''
     # Give me a response in json:
@@ -95,4 +104,8 @@ if run:
             {"role": "user", "content": user_prompt}
         ]
     )
-    st.write(response.choices[0].message.content)
+run = response.choices[0].message.content
+if style != "Quiz you":
+    st.write(run)
+else:
+    quiz = json.loads(run)
