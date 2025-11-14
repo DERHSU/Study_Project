@@ -109,8 +109,8 @@ def respond():
                 question = list(qa_set)[0]
                 answer = qa_set[question] 
                 st.radio(question, answer, None)
-                
-run = st.button("Submit your request", onclick=respond)
+
+run = st.button("Submit your request", on_click=respond)
 
 
 
