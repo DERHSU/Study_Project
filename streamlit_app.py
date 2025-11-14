@@ -104,8 +104,9 @@ if run:
             {"role": "user", "content": user_prompt}
         ]
     )
-run = response.choices[0].message.content
-if style != "Quiz you":
-    st.write(run)
-else:
-    quiz = json.loads(run)
+    ai_response= response.choices[0].message.content
+    if style != "Quiz you":
+        st.write(ai_response)
+    else:
+        quiz = json.loads(ai_response)
+        st.write(quiz)
