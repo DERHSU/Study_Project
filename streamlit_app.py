@@ -124,10 +124,17 @@ if run:
             st.markdown(formatted_quiz)
 
         if method == "short answer":
-            formatted_quiz = "" 
-            for i, qa_set in list(quiz):
-                question_text = qa_set["Question"]
-                formatted_quiz += f"\n\n## Question {i+1}\n"
-                formatted_quiz += f"**{question_text}**\n\n"
-                formatted_quiz += "> Write your answer below.\n"
-            st.markdown(formatted_quiz)
+            st.write(quiz)
+
+
+
+            # formatted_quiz = "" 
+            # for i, qa_set in list(quiz):
+            #     question_text = qa_set["Question"]
+            #     formatted_quiz += f"\n\n## Question {i+1}\n"
+            #     formatted_quiz += f"**{question_text}**\n\n"
+            #     formatted_quiz += "> Write your answer below.\n"
+            # st.markdown(formatted_quiz)
+
+
+            
