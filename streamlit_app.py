@@ -125,7 +125,7 @@ if run:
 
         if method == "short answer":
             for qa_set in quiz:
-                question = "# " + qa_set["Question"] 
+                question = "### " + qa_set["Question"] 
                 st.write(question)
 
 
