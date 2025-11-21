@@ -111,13 +111,23 @@ if run:
         st.write(ai_response)
     else:
         quiz = json.loads(ai_response)
-        st.write(quiz)
+        st.write("###  Your Quiz")
+
         if method == "multiple choice":
             formatted_quiz = ""
             for qa_set in quiz:
                 question = list(qa_set)[0]
                 answer = qa_set[question] 
-                formatted_quiz += "**" + question + "**\n"
+                formatted_quiz += "\n**" + question + "**\n"
                 for a in answer:
                     formatted_quiz += f"- {a}\n"
-            st.write(formatted_quiz) 
+            st.markdown(formatted_quiz)
+
+        if method == "short answer":
+            formatted_quiz = "" 
+            for i, qa_set in list(quiz):
+                question_text = qa_set["Question"]
+                formatted_quiz += f"\n\n## Question {i+1}\n"
+                formatted_quiz += f"**{question_text}**\n\n"
+                formatted_quiz += "> Write your answer below.\n"
+            st.markdown(formatted_quiz)
